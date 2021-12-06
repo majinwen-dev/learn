@@ -4,8 +4,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-*.yaml
-*.properties
+application.yaml
+application.properties
 
 
 ### STS ###
