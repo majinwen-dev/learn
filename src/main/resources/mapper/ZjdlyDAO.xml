@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.learn.learn.dao.ZjdlyDAO">
+  <resultMap id="BaseResultMap" type="com.example.learn.learn.domain.Zjdly">
+    <id column="bsm" jdbcType="VARCHAR" property="bsm" />
+    <result column="ysdm" jdbcType="VARCHAR" property="ysdm" />
+    <result column="zjddm" jdbcType="VARCHAR" property="zjddm" />
+    <result column="zjdzdxxbsm" jdbcType="VARCHAR" property="zjdzdxxbsm" />
+    <result column="zjdlyzk" jdbcType="VARCHAR" property="zjdlyzk" />
+    <result column="zjdxzyy" jdbcType="VARCHAR" property="zjdxzyy" />
+    <result column="zjdxzqssj" jdbcType="DATE" property="zjdxzqssj" />
+    <result column="dcsj" jdbcType="DATE" property="dcsj" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="edit_by" jdbcType="VARCHAR" property="editBy" />
+    <result column="edit_time" jdbcType="TIMESTAMP" property="editTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    bsm, ysdm, zjddm, zjdzdxxbsm, zjdlyzk, zjdxzyy, zjdxzqssj, dcsj, bz, create_by, create_time, 
+    edit_by, edit_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from zjdly
+    where bsm = #{bsm,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from zjdly
+    where bsm = #{bsm,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.learn.learn.domain.Zjdly">
+    insert into zjdly (bsm, ysdm, zjddm, 
+      zjdzdxxbsm, zjdlyzk, zjdxzyy, 
+      zjdxzqssj, dcsj, bz, create_by, 
+      create_time, edit_by, edit_time
+      )
+    values (#{bsm,jdbcType=VARCHAR}, #{ysdm,jdbcType=VARCHAR}, #{zjddm,jdbcType=VARCHAR}, 
+      #{zjdzdxxbsm,jdbcType=VARCHAR}, #{zjdlyzk,jdbcType=VARCHAR}, #{zjdxzyy,jdbcType=VARCHAR}, 
+      #{zjdxzqssj,jdbcType=DATE}, #{dcsj,jdbcType=DATE}, #{bz,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{editBy,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.learn.learn.domain.Zjdly">
+    insert into zjdly
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bsm != null">
+        bsm,
+      </if>
+      <if test="ysdm != null">
+        ysdm,
+      </if>
+      <if test="zjddm != null">
+        zjddm,
+      </if>
+      <if test="zjdzdxxbsm != null">
+        zjdzdxxbsm,
+      </if>
+      <if test="zjdlyzk != null">
+        zjdlyzk,
+      </if>
+      <if test="zjdxzyy != null">
+        zjdxzyy,
+      </if>
+      <if test="zjdxzqssj != null">
+        zjdxzqssj,
+      </if>
+      <if test="dcsj != null">
+        dcsj,
+      </if>
+      <if test="bz != null">
+        bz,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="editBy != null">
+        edit_by,
+      </if>
+      <if test="editTime != null">
+        edit_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bsm != null">
+        #{bsm,jdbcType=VARCHAR},
+      </if>
+      <if test="ysdm != null">
+        #{ysdm,jdbcType=VARCHAR},
+      </if>
+      <if test="zjddm != null">
+        #{zjddm,jdbcType=VARCHAR},
+      </if>
+      <if test="zjdzdxxbsm != null">
+        #{zjdzdxxbsm,jdbcType=VARCHAR},
+      </if>
+      <if test="zjdlyzk != null">
+        #{zjdlyzk,jdbcType=VARCHAR},
+      </if>
+      <if test="zjdxzyy != null">
+        #{zjdxzyy,jdbcType=VARCHAR},
+      </if>
+      <if test="zjdxzqssj != null">
+        #{zjdxzqssj,jdbcType=DATE},
+      </if>
+      <if test="dcsj != null">
+        #{dcsj,jdbcType=DATE},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editBy != null">
+        #{editBy,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null">
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.learn.learn.domain.Zjdly">
+    update zjdly
+    <set>
+      <if test="ysdm != null">
+        ysdm = #{ysdm,jdbcType=VARCHAR},
+      </if>
+      <if test="zjddm != null">
+        zjddm = #{zjddm,jdbcType=VARCHAR},
+      </if>
+      <if test="zjdzdxxbsm != null">
+        zjdzdxxbsm = #{zjdzdxxbsm,jdbcType=VARCHAR},
+      </if>
+      <if test="zjdlyzk != null">
+        zjdlyzk = #{zjdlyzk,jdbcType=VARCHAR},
+      </if>
+      <if test="zjdxzyy != null">
+        zjdxzyy = #{zjdxzyy,jdbcType=VARCHAR},
+      </if>
+      <if test="zjdxzqssj != null">
+        zjdxzqssj = #{zjdxzqssj,jdbcType=DATE},
+      </if>
+      <if test="dcsj != null">
+        dcsj = #{dcsj,jdbcType=DATE},
+      </if>
+      <if test="bz != null">
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editBy != null">
+        edit_by = #{editBy,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null">
+        edit_time = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where bsm = #{bsm,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.learn.learn.domain.Zjdly">
+    update zjdly
+    set ysdm = #{ysdm,jdbcType=VARCHAR},
+      zjddm = #{zjddm,jdbcType=VARCHAR},
+      zjdzdxxbsm = #{zjdzdxxbsm,jdbcType=VARCHAR},
+      zjdlyzk = #{zjdlyzk,jdbcType=VARCHAR},
+      zjdxzyy = #{zjdxzyy,jdbcType=VARCHAR},
+      zjdxzqssj = #{zjdxzqssj,jdbcType=DATE},
+      dcsj = #{dcsj,jdbcType=DATE},
+      bz = #{bz,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      edit_by = #{editBy,jdbcType=VARCHAR},
+      edit_time = #{editTime,jdbcType=TIMESTAMP}
+    where bsm = #{bsm,jdbcType=VARCHAR}
+  </update>
+</mapper>

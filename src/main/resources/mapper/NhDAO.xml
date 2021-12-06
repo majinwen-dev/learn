@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.learn.learn.dao.NhDAO">
+  <resultMap id="BaseResultMap" type="com.example.learn.learn.domain.Nh">
+    <id column="bsm" jdbcType="VARCHAR" property="bsm" />
+    <result column="ysdm" jdbcType="VARCHAR" property="ysdm" />
+    <result column="suyqrbsm" jdbcType="VARCHAR" property="suyqrbsm" />
+    <result column="suyqrdm" jdbcType="VARCHAR" property="suyqrdm" />
+    <result column="nhdm" jdbcType="VARCHAR" property="nhdm" />
+    <result column="hzxm" jdbcType="VARCHAR" property="hzxm" />
+    <result column="hzzjlx" jdbcType="VARCHAR" property="hzzjlx" />
+    <result column="hzzjhm" jdbcType="VARCHAR" property="hzzjhm" />
+    <result column="txdz" jdbcType="VARCHAR" property="txdz" />
+    <result column="hncysl" jdbcType="INTEGER" property="hncysl" />
+    <result column="sfwbh" jdbcType="VARCHAR" property="sfwbh" />
+    <result column="sfpkh" jdbcType="VARCHAR" property="sfpkh" />
+    <result column="sfyxq" jdbcType="VARCHAR" property="sfyxq" />
+    <result column="sfyzg" jdbcType="VARCHAR" property="sfyzg" />
+    <result column="sjly" jdbcType="VARCHAR" property="sjly" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="edit_by" jdbcType="VARCHAR" property="editBy" />
+    <result column="edit_time" jdbcType="TIMESTAMP" property="editTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    bsm, ysdm, suyqrbsm, suyqrdm, nhdm, hzxm, hzzjlx, hzzjhm, txdz, hncysl, sfwbh, sfpkh, 
+    sfyxq, sfyzg, sjly, bz, create_by, create_time, edit_by, edit_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from nh
+    where bsm = #{bsm,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from nh
+    where bsm = #{bsm,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="bsm" keyProperty="bsm" parameterType="com.example.learn.learn.domain.Nh" useGeneratedKeys="true">
+    insert into nh (ysdm, suyqrbsm, suyqrdm, 
+      nhdm, hzxm, hzzjlx, 
+      hzzjhm, txdz, hncysl, 
+      sfwbh, sfpkh, sfyxq, 
+      sfyzg, sjly, bz, create_by, 
+      create_time, edit_by, edit_time
+      )
+    values (#{ysdm,jdbcType=VARCHAR}, #{suyqrbsm,jdbcType=VARCHAR}, #{suyqrdm,jdbcType=VARCHAR}, 
+      #{nhdm,jdbcType=VARCHAR}, #{hzxm,jdbcType=VARCHAR}, #{hzzjlx,jdbcType=VARCHAR}, 
+      #{hzzjhm,jdbcType=VARCHAR}, #{txdz,jdbcType=VARCHAR}, #{hncysl,jdbcType=INTEGER}, 
+      #{sfwbh,jdbcType=VARCHAR}, #{sfpkh,jdbcType=VARCHAR}, #{sfyxq,jdbcType=VARCHAR}, 
+      #{sfyzg,jdbcType=VARCHAR}, #{sjly,jdbcType=VARCHAR}, #{bz,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{editBy,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="bsm" keyProperty="bsm" parameterType="com.example.learn.learn.domain.Nh" useGeneratedKeys="true">
+    insert into nh
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ysdm != null">
+        ysdm,
+      </if>
+      <if test="suyqrbsm != null">
+        suyqrbsm,
+      </if>
+      <if test="suyqrdm != null">
+        suyqrdm,
+      </if>
+      <if test="nhdm != null">
+        nhdm,
+      </if>
+      <if test="hzxm != null">
+        hzxm,
+      </if>
+      <if test="hzzjlx != null">
+        hzzjlx,
+      </if>
+      <if test="hzzjhm != null">
+        hzzjhm,
+      </if>
+      <if test="txdz != null">
+        txdz,
+      </if>
+      <if test="hncysl != null">
+        hncysl,
+      </if>
+      <if test="sfwbh != null">
+        sfwbh,
+      </if>
+      <if test="sfpkh != null">
+        sfpkh,
+      </if>
+      <if test="sfyxq != null">
+        sfyxq,
+      </if>
+      <if test="sfyzg != null">
+        sfyzg,
+      </if>
+      <if test="sjly != null">
+        sjly,
+      </if>
+      <if test="bz != null">
+        bz,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="editBy != null">
+        edit_by,
+      </if>
+      <if test="editTime != null">
+        edit_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ysdm != null">
+        #{ysdm,jdbcType=VARCHAR},
+      </if>
+      <if test="suyqrbsm != null">
+        #{suyqrbsm,jdbcType=VARCHAR},
+      </if>
+      <if test="suyqrdm != null">
+        #{suyqrdm,jdbcType=VARCHAR},
+      </if>
+      <if test="nhdm != null">
+        #{nhdm,jdbcType=VARCHAR},
+      </if>
+      <if test="hzxm != null">
+        #{hzxm,jdbcType=VARCHAR},
+      </if>
+      <if test="hzzjlx != null">
+        #{hzzjlx,jdbcType=VARCHAR},
+      </if>
+      <if test="hzzjhm != null">
+        #{hzzjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="txdz != null">
+        #{txdz,jdbcType=VARCHAR},
+      </if>
+      <if test="hncysl != null">
+        #{hncysl,jdbcType=INTEGER},
+      </if>
+      <if test="sfwbh != null">
+        #{sfwbh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfpkh != null">
+        #{sfpkh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfyxq != null">
+        #{sfyxq,jdbcType=VARCHAR},
+      </if>
+      <if test="sfyzg != null">
+        #{sfyzg,jdbcType=VARCHAR},
+      </if>
+      <if test="sjly != null">
+        #{sjly,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editBy != null">
+        #{editBy,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null">
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.learn.learn.domain.Nh">
+    update nh
+    <set>
+      <if test="ysdm != null">
+        ysdm = #{ysdm,jdbcType=VARCHAR},
+      </if>
+      <if test="suyqrbsm != null">
+        suyqrbsm = #{suyqrbsm,jdbcType=VARCHAR},
+      </if>
+      <if test="suyqrdm != null">
+        suyqrdm = #{suyqrdm,jdbcType=VARCHAR},
+      </if>
+      <if test="nhdm != null">
+        nhdm = #{nhdm,jdbcType=VARCHAR},
+      </if>
+      <if test="hzxm != null">
+        hzxm = #{hzxm,jdbcType=VARCHAR},
+      </if>
+      <if test="hzzjlx != null">
+        hzzjlx = #{hzzjlx,jdbcType=VARCHAR},
+      </if>
+      <if test="hzzjhm != null">
+        hzzjhm = #{hzzjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="txdz != null">
+        txdz = #{txdz,jdbcType=VARCHAR},
+      </if>
+      <if test="hncysl != null">
+        hncysl = #{hncysl,jdbcType=INTEGER},
+      </if>
+      <if test="sfwbh != null">
+        sfwbh = #{sfwbh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfpkh != null">
+        sfpkh = #{sfpkh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfyxq != null">
+        sfyxq = #{sfyxq,jdbcType=VARCHAR},
+      </if>
+      <if test="sfyzg != null">
+        sfyzg = #{sfyzg,jdbcType=VARCHAR},
+      </if>
+      <if test="sjly != null">
+        sjly = #{sjly,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null">
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editBy != null">
+        edit_by = #{editBy,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null">
+        edit_time = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where bsm = #{bsm,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.learn.learn.domain.Nh">
+    update nh
+    set ysdm = #{ysdm,jdbcType=VARCHAR},
+      suyqrbsm = #{suyqrbsm,jdbcType=VARCHAR},
+      suyqrdm = #{suyqrdm,jdbcType=VARCHAR},
+      nhdm = #{nhdm,jdbcType=VARCHAR},
+      hzxm = #{hzxm,jdbcType=VARCHAR},
+      hzzjlx = #{hzzjlx,jdbcType=VARCHAR},
+      hzzjhm = #{hzzjhm,jdbcType=VARCHAR},
+      txdz = #{txdz,jdbcType=VARCHAR},
+      hncysl = #{hncysl,jdbcType=INTEGER},
+      sfwbh = #{sfwbh,jdbcType=VARCHAR},
+      sfpkh = #{sfpkh,jdbcType=VARCHAR},
+      sfyxq = #{sfyxq,jdbcType=VARCHAR},
+      sfyzg = #{sfyzg,jdbcType=VARCHAR},
+      sjly = #{sjly,jdbcType=VARCHAR},
+      bz = #{bz,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      edit_by = #{editBy,jdbcType=VARCHAR},
+      edit_time = #{editTime,jdbcType=TIMESTAMP}
+    where bsm = #{bsm,jdbcType=VARCHAR}
+  </update>
+</mapper>
